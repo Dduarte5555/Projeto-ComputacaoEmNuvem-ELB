@@ -51,26 +51,6 @@ data "aws_iam_policy_document" "logs" {
   }
 }
 
-##################
-# ACM certificate
-##################
-resource "aws_route53_zone" "this" {
-  name          = "elbexample.com"
-  force_destroy = true
-}
-
-module "acm" {
-  source  = "terraform-aws-modules/acm/aws"
-  version = "~> 3.0"
-
-  zone_id = aws_route53_zone.this.zone_id
-
-  domain_name               = "elbexample.com"
-  subject_alternative_names = ["*.elbexample.com"]
-
-  wait_for_validation = false
-}
-
 ######
 # ELB
 ######
@@ -95,11 +75,6 @@ module "elb" {
       instance_protocol = "http"
       lb_port           = "8080"
       lb_protocol       = "http"
-
-      #            Note about SSL:
-      #            This line is commented out because ACM certificate has to be "Active" (validated and verified by AWS, but Route53 zone used in this example is not real).
-      #            To enable SSL in ELB: uncomment this line, set "wait_for_validation = true" in ACM module and make sure that instance_protocol and lb_protocol are https or ssl.
-      # ssl_certificate_id = module.acm.acm_certificate_arn
     },
   ]
 
@@ -135,7 +110,7 @@ module "ec2_instances" {
   instance_count = var.number_of_instances
 
   name                        = "my-app"
-  ami                         = "ami-0889a44b331db0194"
+  ami                         = "ami-074d5beb835e40ff5"  # Here you put your image with nginx to have your ELB working.
   instance_type               = "t2.micro"
   vpc_security_group_ids      = [data.aws_security_group.default.id]
   subnet_id                   = element(tolist(data.aws_subnet_ids.all.ids), 0)
