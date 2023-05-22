@@ -16,4 +16,24 @@ Neste repositório se encontra o Projeto Final da matéria Computação em Nuvem
 
 ![Badge](https://img.shields.io/badge/AWS_CLI-v2.11.16-%23232F3E?style=flat&logo=amazonaws)
 
+## Executando o projeto
+
+```bash
+# Comece baixando as dependências do projeto:
+$ terraform init
+
+# Para vermos o que será utilizado na infraestrutura:
+$ terraform plan
+
+# Para subirmos a infraestrutura:
+$ terraform apply
+```
+
+## Testando
+
+```bash
+# Depois de usar a infraestrutura, temos que destruí-la:
+$ terraform destroy
+```
+
 
