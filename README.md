@@ -22,7 +22,7 @@ Este projeto corresponde ao conceito C+ do projeto, em que consiste em ter um am
 
 - Ter um usuário criado na AWS (AWS IAM User)
 
-- Ter uma imagem que tenha algum serviço de Load Balancer (Exemplo: nginx configurado)
+- Ter uma imagem que tenha algum serviço de Elastic Load Balancer (Exemplo: nginx configurado)
 
 ## Começando o projeto 
 
@@ -72,8 +72,11 @@ Por fim, o formato padrão de output de informação
 
 Após preencher estes campos, as credenciais estarão definidas e você poderá interagir com os serviços da AWS.
 
-
 ## Executando o projeto
+
+Após fazer as preparações do projeto, estamos prontos para comecar a construir a infraestrutura. Primeiramente, clone o repositório. Nele já está quase tudo pronto, será necessário fazer apenas uma mudança em um arquivo para tudo funcionar. No arquivo Principal/main.tf, na linha 113, se encontra uma variável chamada ami, a qual será onde você colocará a sua imagem criada com o seu serviço de ELB funcionando, por exemplo no arquivo está configurada a minha imagem que possui o serviço de ELB. 
+
+Após você fazer esta mudança, acesse a pasta principal e dê os seguintes comandos. Estes comandos irão montar a infraestrutura para na AWS.
 
 ```bash
 # Comece baixando as dependências do projeto:
@@ -88,9 +91,17 @@ $ terraform apply
 
 ## Testando
 
+
+## Destruindo o projeto
+
 ```bash
 # Depois de usar a infraestrutura, temos que destruí-la:
 $ terraform destroy
 ```
 
+## Referências
+
+- https://github.com/terraform-aws-modules/terraform-aws-elb/tree/master
+
+- https://registry.terraform.io/
 
