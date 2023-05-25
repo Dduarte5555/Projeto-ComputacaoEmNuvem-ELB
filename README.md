@@ -6,7 +6,7 @@ Neste repositório se encontra o Projeto Final da matéria Computação em Nuvem
 
 ## Diagrama Arquitetural
 
-![img](diagrama_infraestrutura.png)
+![img_diagrama](imgs/diagrama_infraestrutura.png)
 
 ## Conceito do Projeto
 
@@ -59,16 +59,16 @@ Para configurar pela AWS CLi via terminal, digite este comando no seu prompt:
 aws configure
 ```
 Após digitar este comando, você colocará sua AWS Acess Key ID que foi criada agora pouco. 
-IMG1
+![img1](imgs/img1.png)
 
 Depois de lidar com a AWS Acess Key ID, será pedido para colocar a sua AWS Secret Acess Key
-IMG2
+![img2](imgs/img2.png)
 
 Em seguida, será pedido a região padrão
-IMG3
+![img3](imgs/img3.png)
 
 Por fim, o formato padrão de output de informação
-IMG4
+![img4](imgs/img4.png)
 
 Após preencher estes campos, as credenciais estarão definidas e você poderá interagir com os serviços da AWS.
 
