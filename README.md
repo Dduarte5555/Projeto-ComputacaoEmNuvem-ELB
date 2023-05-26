@@ -76,6 +76,8 @@ Após preencher estes campos, as credenciais estarão definidas e você poderá 
 
 Após fazer as preparações do projeto, estamos prontos para comecar a construir a infraestrutura. Primeiramente, clone o repositório. Nele já está quase tudo pronto, será necessário fazer apenas uma mudança em um arquivo para tudo funcionar. No arquivo Principal/main.tf, na linha 113, se encontra uma variável chamada ami, a qual será onde você colocará a sua imagem criada com o seu serviço de ELB funcionando, por exemplo no arquivo está configurada a minha imagem que possui o serviço de ELB. 
 
+![img5](imgs/img_ami.png)
+
 Após você fazer esta mudança, acesse a pasta principal e dê os seguintes comandos. Estes comandos irão montar a infraestrutura para na AWS.
 
 ```bash
