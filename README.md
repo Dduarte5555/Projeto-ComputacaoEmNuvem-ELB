@@ -90,16 +90,37 @@ $ terraform plan
 # Para subirmos a infraestrutura:
 $ terraform apply
 ```
+Se tudo der certo, você verá a imagem abaixo. Ela possui um output, em que o argumento mais importante deste output seria o primeiro. O "elb_dns_name" será o endereço o qual você consiguirá acessar o load balancer, e consequentemente se as máquinas estiverem com a imagem certa, redirecionando para elas.
+
+![img6](imgs/apply.png)
 
 ## Testando
 
+Ao subir a infraestrutura, acessar o serviço EC2 na AWS, e ir na aba de instâncias, o esperado é que tenha um formato igual ao da imagem a seguir
+
+![img7](imgs/instances.png)
+
+Já na aba Load Balancer no mesmo serviço EC2, é esperado que ele fique parecido com o da imagem a seguir
+
+![img8](imgs/elb.png)
+
+Por fim, sabendo que as EC2 estão rodando algum serviço, ou seja, que elas certamente retornarão algo, podemos acessar o endereço no browser dado pela variável elb_dns_name do output do terminal. Caso as EC2 não possuem um serviço, irá retornar erro 503, que indica que não há nada o que aparecer neste endereço. Caso funcione, é esperado que retorne algo como por exemplo a imagem a seguir
+
+![img9](imgs/teste.png)
+
 
 ## Destruindo o projeto
+
+Quando quiser destruir a infraestrutura criada pelo terraform, basta digitar o seguinte código
 
 ```bash
 # Depois de usar a infraestrutura, temos que destruí-la:
 $ terraform destroy
 ```
+
+## Conclusão 
+
+Com isso finalizamos uma infraestrutura de Elastic Load Balancer. Neste roteiro passamos desde a criação do usuário na AWS até a destruição da infraestrutura. Espero que tenha ficado claro e fácil de entender. Boa Terraformagem :)
 
 ## Referências
 
